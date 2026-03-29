@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Für dich 💕</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to right, #ff9a9e, #fecfef);
+    text-align: center;
+    color: #fff;
+}
+
+.container {
+    padding: 20px;
+    margin-top: 80px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#yes {
+    background-color: #ff4d88;
+    color: white;
+}
+
+#no {
+    background-color: white;
+    color: #ff4d88;
+    position: relative;
+}
+
+/* Herzen */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+    <h1>Willst du mit mir auf ein Date gehen? 💕</h1>
+
+    <button id="yes" onclick="sayYes()">Ja 💖</button>
+    <button id="no" onclick="moveButton()">Nein 😜</button>
+</div>
+
+<script>
+function sayYes() {
+    document.getElementById("main").innerHTML = `
+    <h1>Ich freue mich 😍</h1>
+    <p>
+    Freitag Mittag:<br>
+    Essen 🍝 oder Fahrrad 🚴 (je nach Wetter ☀️🌧️)<br><br>
+
+    Abends:<br>
+    Solymar 🌊✨<br><br>
+
+    Samstag:<br>
+    Frühstück 🥐☕💛
+    </p>`;
+}
+
+function moveButton() {
+    alert("Falsche Antwort 😜");
+}
+
+// Herzen
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}, 400);
+</script>
+
+</body>
+</html>
